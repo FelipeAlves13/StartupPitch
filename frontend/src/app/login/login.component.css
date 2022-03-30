@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 310px;
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(168, 168, 168, 0.486);
+  border-radius: 30px;
+  margin-bottom: 10px;
+
+}
+
+.btn_menu {
+  box-sizing: border-box;
+  height: 46px;
+  width: 50%;
+  text-align: center;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+
+span {
+  width: 50%;
+  height: 100%;
+  background: #F27121;
+  position: absolute;
+  left: 0;
+  border-radius: 30px;
+  transition: left 1s;
+}
+
+.card {
+  position: relative;
+  height: 70vh;
+  border-radius: 15px;
+}
+
+.card::after {
+  border-radius: 15px;
+  content: '';
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(#8A2387, #E94057, #F27121);
+  clip-path: polygon(50% 0%, 100% 0, 100% 13%, 100% 30%, 71% 46%, 50% 47%, 28% 46%, 0 30%, 0 9%, 0 0);
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+
+.card-title {
+  position: absolute;
+  z-index: 100;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.legenda {
+  position: absolute;
+  color: white;
+  z-index: 3;
+  top: 60px;
+}
+
+.logando {
+  width: 90%;
+  position: absolute;
+  bottom: 20px;
+}
+
+.icon_user {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.icon_user img {
+  width: 90px;
+}
+
+.conteudo {
+  margin-top: 12px;
+}
+
+.button_center {
+  display: flex;
+  justify-content: center;
+}
+
+.conteudo .btn.loggin {
+  margin-top: 24px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: #E94057;
+  color: white;
+  font-weight: 900;
+  width: 80%;
+}
+
+/*.btn_cadastrar {}*/
