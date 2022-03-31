@@ -5,22 +5,27 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
+import { ConsultapitchComponent } from './consultapitch/consultapitch.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    ConsultapitchComponent,
+
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'cadastro', component: CadastroComponent },
+      { path: 'consulta', component: ConsultapitchComponent }
     ]),
   ],
   providers: [],
-  bootstrap: [AppComponent, LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
