@@ -8,21 +8,23 @@
     <div class="card-body">
       <h5 class="card-title">StartupPitch</h5>
       <small class="legenda">Faça seu login</small>
-      <form action="" method="get" class="logando">
+      <form action="" method="get" class="logando" (ngSubmit)="loginInSystem()">
         <div class="icon_user">
           <img src="../../assets/log.png" alt="ícone alaranjado que contém o rosto de um avatar.">
         </div>
         <div class="form-group conteudo">
           <label for="exampleInputEmail1">Email </label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="Enter email">
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+            placeholder="Enter email" [(ngModel)]="email" name="email">
         </div>
         <div class="form-group conteudo">
           <label for="exampleInputPassword1">Senha</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            [(ngModel)]="password" name="passwaord"
+          >
         </div>
         <div class="conteudo button_center">
-          <button type="button" class="btn loggin">Entrar</button>
+          <button type="submit" class="btn loggin" >Entrar</button>
         </div>
       </form>
     </div>

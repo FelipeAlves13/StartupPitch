@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ConsultapitchComponent } from './consultapitch/consultapitch.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +20,7 @@ import { ConsultapitchComponent } from './consultapitch/consultapitch.component'
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'cadastro', component: CadastroComponent },
