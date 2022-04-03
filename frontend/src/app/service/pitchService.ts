@@ -21,14 +21,7 @@ export class PitchService {
     let parametros = new HttpParams();
     let headersReq = new HttpHeaders();
     headersReq.append('Content-Type', 'application/json');
-    // headersReq.append('Accept', '*/*');
-    // headersReq.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    // headersReq.append('Access-Control-Allow-Methods', 'GET');
-    // headersReq.append('Access-Control-Allow-Headers', ['Origin','X-Requested-With','Content-Type', 'Authorization','X-Auth-Token']);
-    // headersReq.append('Access-Control-Allow-Credentials', 'true');
-    // headersReq.append('User-Agent', 'http://localhost:4200');
-    // headersReq.append('Accept-Encoding', 'gzip, deflate, br');
-    // headersReq.append('Connection', 'keep-alive');
+   
     parametros=parametros.append("serieInvestimento", ("%"+serieInvestimentos +"%"));
     parametros=parametros.append("local", ("%"+local+"%"));
     parametros=parametros.append("qtdFuncionarios", Number.parseInt(""+qtdFuncionarios));

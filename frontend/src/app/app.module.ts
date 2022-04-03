@@ -9,6 +9,7 @@ import { ConsultapitchComponent } from './consultapitch/consultapitch.component'
 import { FormsModule } from '@angular/forms';
 import { PitchService } from './service/pitchService';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastroPitchComponent } from './cadastro-pitch/cadastro-pitch.component';
 
 
 
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     CadastroComponent,
     ConsultapitchComponent,
-
+    CadastroPitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'cadastro', component: CadastroComponent },
-      { path: 'consulta', component: ConsultapitchComponent }
+      { path: 'investidor', component: ConsultapitchComponent },
+      { path: 'startup', component:CadastroPitchComponent}
     ]),
   ],
   providers: [PitchService],
