@@ -1,7 +1,7 @@
 export interface Startup{
   id:number;
   name:string;
-  numeroDeFuncionarios:number;
+  quantidadeDeFuncionarios:number;
   local:string;
-
+  descricao:string;
 }

@@ -1,9 +1,9 @@
-import {Startup} from './startup';
+import { Startup } from './startup';
 
-export interface Pitch{
+export interface Pitch {
   id: number;
-  diretorioDoArquivo:string;
-  serieDeInvestimento:string;
-  startup:Startup;
+  diretorioDoArquivo: string;
+  serieDeInvetimento: string;
+  startup: Startup;
 
 }

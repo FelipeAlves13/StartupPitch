@@ -7,6 +7,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { LoginComponent } from './login/login.component';
 import { ConsultapitchComponent } from './consultapitch/consultapitch.component';
 import { FormsModule } from '@angular/forms';
+import { PitchService } from './service/pitchService';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,13 +23,14 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'cadastro', component: CadastroComponent },
       { path: 'consulta', component: ConsultapitchComponent }
     ]),
   ],
-  providers: [],
+  providers: [PitchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

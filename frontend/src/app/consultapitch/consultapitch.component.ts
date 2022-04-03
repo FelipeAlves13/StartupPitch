@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pitch } from '../model/pitch';
+import { PitchService } from '../service/pitchService';
 
 @Component({
   selector: 'app-consultapitch',
@@ -7,45 +8,53 @@ import { Pitch } from '../model/pitch';
   styleUrls: ['./consultapitch.component.css']
 })
 export class ConsultapitchComponent implements OnInit {
-  public hideElement: boolean=true;
-  public localidade:string="";
-  public serieInvestimento:string="Série A";
-  public series:string[]=[
-    "Série A","Série B","Série C","Série D","Série E"
+  public hideElement: boolean = true;
+  public localidade: string = "";
+  public serieInvestimento: string = "Série A";
+  public series: string[] = [
+    "", "Série A", "Série B", "Série C", "Série D", "Série E"
   ]
   public pitchs: Pitch[] = [
-    {id:1,diretorioDoArquivo:"opaaaa",serieDeInvestimento:"Serie A",startup:{
-    id:1,name:"Felipe",numeroDeFuncionarios:20,local:"opaa"}
-    },
-    {id:1,diretorioDoArquivo:"opaaaa",serieDeInvestimento:"Serie B",startup:{
-      id:1,name:"Felipe Antonio",numeroDeFuncionarios:50,local:"opaa"}
+    {
+      id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie A", startup: {
+        id: 1, name: "Felipe", quantidadeDeFuncionarios: 20, local: "opaa", descricao: ""
       }
+    },
+    {
+      id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie B", startup: {
+        id: 1, name: "Felipe Antonio", quantidadeDeFuncionarios: 50, local: "opaa", descricao: ""
+      }
+    }
   ];
-  public pitchAtivo:Pitch={id:0,diretorioDoArquivo:"",serieDeInvestimento:"",startup:{
-    id:0,name:"",numeroDeFuncionarios:0,local:""}
-    };
-    public pitchBusca:Pitch={id:0,diretorioDoArquivo:"",serieDeInvestimento:"",startup:{
-      id:0,name:"",numeroDeFuncionarios:0,local:""}
-      };
+  public pitchAtivo: Pitch = {
+    id: 0, diretorioDoArquivo: "", serieDeInvetimento: "", startup: {
+      id: 0, name: "", quantidadeDeFuncionarios: 0, local: "", descricao: ""
+    }
+  };
+  public pitchBusca: Pitch = {
+    id: 0, diretorioDoArquivo: "", serieDeInvetimento: "", startup: {
+      id: 0, name: "", quantidadeDeFuncionarios: 50, local: "", descricao: ""
+    }
+  };
 
-  constructor() { }
+  constructor(private pitchService: PitchService) { }
 
   ngOnInit(): void {
   }
 
-  exibirOuOcultar(indice:number): void{
-    if(this.hideElement){
+  exibirOuOcultar(indice: number): void {
+    if (this.hideElement) {
       this.hideElement = false;
-      if(indice>=0){
-        this.pitchAtivo=this.pitchs[indice];
+      if (indice >= 0) {
+        this.pitchAtivo = this.pitchs[indice];
       }
-    }else{
+    } else {
       this.hideElement = true;
     }
 
   }
 
-  buscarPitchsPorLocalNumeroDeFuncionariosSerieDeInvestimentos(){
-    this.pitchBusca.startup.local="%"+this.localidade+"%";
+  buscarPitchsPorLocalNumeroDeFuncionariosSerieDeInvestimentos() {
+    this.pitchService.getPitchs(this.pitchBusca.startup.local, this.pitchBusca.serieDeInvetimento, this.pitchBusca.startup.quantidadeDeFuncionarios).subscribe((data: Pitch[]) => this.pitchs = data, error => console.log("error en get pitchs", error));
   }
 }

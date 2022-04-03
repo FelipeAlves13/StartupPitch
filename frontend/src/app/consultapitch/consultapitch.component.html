@@ -20,24 +20,24 @@
   <div class="row d-flex align-items-center">
     <div class="col-3">
       <div class="filter card bg-dark">
-        <form action="" method="get">
+        <form action="" method="get" (ngSubmit)="buscarPitchsPorLocalNumeroDeFuncionariosSerieDeInvestimentos()">
           <h5 class="text-light text-align-center">FILTRO DE PITCHS</h5>
           <hr>
           <div class="form-group">
             <label class="local" for="exampleInputPassword1">Localidade</label>
-            <input type="search" class="form-control bg-dark" id="local" placeholder="Ex.: recife" name="local" [(ngModel)]="localidade">
+            <input type="search" class="form-control bg-dark" id="local" placeholder="Ex.: recife" name="local" [(ngModel)]="pitchBusca.startup.local">
           </div>
           <div class="form-group">
             <label for="customRange2">N° de funcionários</label>
-            <input type="range" class="custom-range" min="1" max="1000" id="customRange2" name="numeroDeFuncionarios" [(ngModel)]="pitchBusca.startup.numeroDeFuncionarios">
+            <input type="range" class="custom-range" min="1" max="1000" id="customRange2" name="numeroDeFuncionarios" [(ngModel)]="pitchBusca.startup.quantidadeDeFuncionarios">
             <small id="emailHelp" class="form-text" style="color:rgb(30, 178, 204)" >
-              {{pitchBusca.startup.numeroDeFuncionarios}}
+              {{pitchBusca.startup.quantidadeDeFuncionarios}}
             </small>
           </div>
           <div class="form-group">
             <label for="customRange2">Série de Investimentos</label>
             <div class="input-group mb-3">
-              <select class="custom-select bg-dark" id="serieDeInvestimento" aria-label="Example select with button addon" name="serieDeInvestimento" [(ngModel)]="serieInvestimento">
+              <select class="custom-select bg-dark" id="serieDeInvestimento" aria-label="Example select with button addon" name="serieDeInvestimento" [(ngModel)]="pitchBusca.serieDeInvetimento">
                 <option *ngFor="let serie of series; let i = index" [value]="serie" [selected]="i==0">{{serie}}</option>
               </select>
             </div>
@@ -45,7 +45,7 @@
 
           </div>
           <hr>
-            <button class="buscar-button">Buscar</button>
+            <button class="buscar-button" type="submit">Buscar</button>
         </form>
 
       </div>
@@ -67,9 +67,9 @@
           <tr *ngFor="let pitch of pitchs;let i = index">
             <th scope="row">{{i+1}}</th>
             <td>{{pitch.startup.name}}</td>
-            <td>{{pitch.startup.numeroDeFuncionarios}}</td>
+            <td>{{pitch.startup.quantidadeDeFuncionarios}}</td>
             <td>{{pitch.startup.local}}</td>
-            <td>{{pitch.serieDeInvestimento}}</td>
+            <td>{{pitch.serieDeInvetimento}}</td>
             <td class="justify-content-center">
               <button class="detalhe" (click)="exibirOuOcultar(i)">
                 Detalhes
@@ -105,7 +105,7 @@
         <h3>Sobre</h3>
       </div>
       <div class="descricao">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum hic quibusdam perferendis cum facere vel laboriosam corrupti labore modi minus inventore ullam ipsam quam esse ut, adipisci exercitationem ipsa maiores.</p>
+        <p>{{pitchAtivo.startup.descricao}}</p>
       </div>
       <div class="dados-sobre">
         <div class="dados-itens">
@@ -114,11 +114,11 @@
         </div>
         <div class="dados-itens">
           <img src="../../assets/equipe.png" alt="" srcset="">
-          <p>{{pitchAtivo.startup.numeroDeFuncionarios}}</p>
+          <p>{{pitchAtivo.startup.quantidadeDeFuncionarios}}</p>
         </div>
         <div class="dados-itens">
           <img src="../../assets/cifrao.png" alt="" srcset="">
-          <p>{{pitchAtivo.serieDeInvestimento}}</p>
+          <p>{{pitchAtivo.serieDeInvetimento}}</p>
         </div>
       </div>
     </div>

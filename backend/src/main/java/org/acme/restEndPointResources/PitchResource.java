@@ -39,7 +39,7 @@ public class PitchResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @Path("/pitchsByLocalSerieFuncionarios")
+  @Path("/search")
   public ArrayList<Pitch> pitchsByLocalNumeroDeFuncionariosAndInvestimento(@QueryParam("serieInvestimento") String inv, @QueryParam("local") String local,@QueryParam("qtdFuncionarios") int  quantidadeDeFuncionarios) {
     // return em.createQuery("select * from pitch").getResultList();
     ArrayList<Pitch> pitchs = new ArrayList<Pitch>();
