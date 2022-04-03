@@ -1,7 +1,10 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col">
       <nav class="navbar fixed-top bg-light shadow-sm border-bottom align-items-center justify-content-between">
+
         <a class="navbar-brand text-dark px-2" href="#">StartupPitch</a>
 
         <div class="menu">
@@ -18,118 +21,57 @@
     <div class="col-3">
       <div class="filter card bg-dark">
         <form action="" method="get">
-          <h5 class="text-light text-align-center">Filtros para busca de pitchs</h5>
+          <h5 class="text-light text-align-center">FILTRO DE PITCHS</h5>
+          <hr>
           <div class="form-group">
             <label class="local" for="exampleInputPassword1">Localidade</label>
-            <input type="search" class="form-control bg-dark" id="exampleInputPassword1" placeholder="Ex.: recife">
+            <input type="search" class="form-control bg-dark" id="local" placeholder="Ex.: recife" name="local" [(ngModel)]="localidade">
           </div>
           <div class="form-group">
-            <label for="customRange2">N° de Funcionários</label>
-            <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+            <label for="customRange2">N° de funcionários</label>
+            <input type="range" class="custom-range" min="1" max="1000" id="customRange2" name="numeroDeFuncionarios" [(ngModel)]="pitchBusca.startup.numeroDeFuncionarios">
+            <small id="emailHelp" class="form-text" style="color:rgb(30, 178, 204)" >
+              {{pitchBusca.startup.numeroDeFuncionarios}}
+            </small>
           </div>
           <div class="form-group">
-            <label for="customRange2">Serie de Investimentos</label>
-            <input type="range" class="custom-range" min="0" max="5" id="customRange2">
+            <label for="customRange2">Série de Investimentos</label>
+            <div class="input-group mb-3">
+              <select class="custom-select bg-dark" id="serieDeInvestimento" aria-label="Example select with button addon" name="serieDeInvestimento" [(ngModel)]="serieInvestimento">
+                <option *ngFor="let serie of series; let i = index" [value]="serie" [selected]="i==0">{{serie}}</option>
+              </select>
+            </div>
+
+
           </div>
+          <hr>
+            <button class="buscar-button">Buscar</button>
         </form>
 
       </div>
     </div>
     <div class="col-8">
       <span>1-10 de 10.000 resultados</span>
-      <table class="table border">
+      <table class="table border table-bordered">
         <thead class="bg-dark border-dark ">
           <tr>
             <th scope="col justify-content-center">#</th>
-            <th scope="col justify-content-center">Empresa</th>
+            <th scope="col justify-content-center">Startup</th>
             <th scope="col justify-content-center">N° de Funcionários</th>
             <th scope="col justify-content-center">Localidade</th>
-            <th scope="col justify-content-center">Investimento</th>
+            <th scope="col justify-content-center">Série de Investimento</th>
             <th scope="col justify-content-center">Visualizar</th>
           </tr>
         </thead>
         <tbody>
-
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>R$ 40.000</td>
+          <tr *ngFor="let pitch of pitchs;let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{pitch.startup.name}}</td>
+            <td>{{pitch.startup.numeroDeFuncionarios}}</td>
+            <td>{{pitch.startup.local}}</td>
+            <td>{{pitch.serieDeInvestimento}}</td>
             <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
-                Detalhes
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>R$ 40.000</td>
-            <td class="justify-content-center">
-              <button class="detalhe">
+              <button class="detalhe" (click)="exibirOuOcultar(i)">
                 Detalhes
               </button>
             </td>
@@ -140,3 +82,53 @@
     </div>
   </div>
 </div>
+
+<div class="toggle bg-light" [hidden]="hideElement">
+  <div class="top">
+    <div class="title">
+      <img src="../../assets/companhia.png" alt="" srcset="">
+      <h2>{{pitchAtivo.startup.name}}</h2>
+    </div>
+    <div class="superior-direito">
+      <button class="fechar" (click)="exibirOuOcultar(-1)">
+        <img src="../../assets/botao-fechar.png" alt="" srcset="">
+      </button>
+    </div>
+
+  </div>
+  <div class="card startup-detalhes" style="width: 90%">
+
+
+    <div class="dados">
+      <div class="title-sobre">
+        <img src="../../assets/companhia.png" alt="" srcset="">
+        <h3>Sobre</h3>
+      </div>
+      <div class="descricao">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum hic quibusdam perferendis cum facere vel laboriosam corrupti labore modi minus inventore ullam ipsam quam esse ut, adipisci exercitationem ipsa maiores.</p>
+      </div>
+      <div class="dados-sobre">
+        <div class="dados-itens">
+          <img src="../../assets/pino-de-localizacao.png" alt="" srcset="">
+          <p>{{pitchAtivo.startup.local}}</p>
+        </div>
+        <div class="dados-itens">
+          <img src="../../assets/equipe.png" alt="" srcset="">
+          <p>{{pitchAtivo.startup.numeroDeFuncionarios}}</p>
+        </div>
+        <div class="dados-itens">
+          <img src="../../assets/cifrao.png" alt="" srcset="">
+          <p>{{pitchAtivo.serieDeInvestimento}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pitch-arquivo">
+    <h4>Pitch</h4>
+    <iframe src="../../assets/Artigo___EAD___Covid (6).pdf" frameborder="0" class="arquivo"></iframe>
+  </div>
+
+</div>
+
+
+

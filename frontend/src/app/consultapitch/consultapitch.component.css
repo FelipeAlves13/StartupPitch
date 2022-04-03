@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
 * {
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -42,13 +44,18 @@ table {
 
 thead {
   color: white;
+  font-size: 0.85rem;
 }
-
+tbody{
+  font-size: 0.85rem;
+  font-weight: 400;
+}
 span {
   position: absolute;
   top: 14vh;
   color: #1f201e;
   font-weight: 700;
+  font-size: 0.85rem;
 }
 
 .menu {
@@ -71,7 +78,7 @@ small {
   display: block;
 }
 
-img {
+.menu a img {
   width: 35px;
   height: 35px;
   border-style: none;
@@ -80,11 +87,11 @@ img {
 }
 
 .detalhe {
-  background: #8A2387;
-  padding: 2px;
+  background: #3e99e7;
+  padding: 5px;
   margin: 0;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   width: 100%;
   color: white;
   font-weight: 600;
@@ -95,26 +102,174 @@ img {
 }
 
 input {
-  color: white;
+  color: rgb(30, 178, 204);
   border-color: #6e6e6d;
   width: 100%;
+  font-size: 0.85rem;
 }
 
 input:focus {
   /* border-color: #F27121;
   box-shadow: 0 0 10px #F27121; */
-  text-decoration-color: white;
-  color: white;
+  text-decoration-color: rgb(30, 178, 204);
+  color: rgb(30, 178, 204);
 }
 
 label {
   color: white;
   font-weight: 600;
-
+  font-size: 0.95rem;
+}
+.custom-select{
+  width: 100%;
+  height:40px;
+  color:rgb(30, 178, 204);
+  border-radius: 4px;
+  font-size: 0.85rem;
 }
 
+option{
+  font-size: 0.85rem;
+}
 
 h5 {
   text-align: center;
   margin-top: 20px;
+  font-size: 0.95rem;
+}
+hr{
+  border-color: #6e6e6d;
+  background-color: blanchedalmond;
+  width: 100%;
+
+}
+
+.toggle{
+  position:absolute;
+  z-index: 1000;
+  height: 80vh;
+  width: 80vw;
+  top:10vh;
+  left:10vw;
+  display: grid;
+  background-color: #fff !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "acima acima"
+  "esquerda direita";
+  grid-template-rows: 15%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+}
+.toggle .top{
+  grid-area: acima;
+  height: 10%;
+}
+.superior-direito{
+  position: absolute;
+  top: 0px;
+  right: 1%;
+}
+.fechar{
+  border: 0;
+  background: rgba(0, 0, 0,0);
+  font-size: 1.85rem;
+  font-weight: 900;
+}
+.toggle .startup-detalhes{
+  width: 100%;
+  height: 100%;
+  grid-area: esquerda;
+  margin-left: 5%;
+  border: 0;
+}
+.toggle .pitch-arquivo{
+  width: 95%;
+  height: 100%;
+  grid-area: direita;
+
+}
+.toggle .pitch-arquivo .arquivo{
+  border: 1px solid rgb(214, 211, 211);
+  border-radius: 4px;
+  width: 100%;
+  height: 90%;
+}
+.title{
+  display: flex;
+  align-items: baseline;
+  position: absolute;
+    top: 7px;
+    left: 2%;
+
+}
+.title h2{
+  padding-left: 6px;
+}
+
+.title img{
+  width: 45px;
+}
+
+.title-sobre{
+  display: flex;
+
+  margin-bottom: 20px;
+  align-items: baseline;
+  box-sizing: border-box;
+}
+
+.title-sobre h3{
+  padding-left: 6px;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.title-sobre img{
+  width: 40px;
+  height: 40px;
+}
+
+.descricao{
+  text-align: justify;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.dados-itens{
+  display: flex;
+  align-items: center;
+  height:32px;
+  margin-bottom: 10px;
+}
+
+.dados-itens img{
+  width: 24px;
+  height: 24px;
+}
+
+.dados-itens  p{
+  text-align: center;
+  padding: 8px;
+  margin: 2px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+.toggle .pitch-arquivo h4{
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.buscar-button{
+  display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 40px;
+    border: 0;
+    background: #fff;
+    border-radius: 4px;
+    font-weight: 900;
+    font-size: 1rem;
 }

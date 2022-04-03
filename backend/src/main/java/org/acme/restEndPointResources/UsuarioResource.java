@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.acme.entidades.Usuario;
@@ -25,8 +26,8 @@ public class UsuarioResource {
 
   @GET
   @Path("/login")
-  public Usuario userByEmailAndPassword(Usuario usuario) {
-    return Usuario.find("email = ?1 and password = ?2", usuario.email, usuario.password).firstResult();
+  public Usuario userByEmailAndPassword(@QueryParam("email") String email, @QueryParam("password") String password) {
+    return Usuario.find("email = ?1 and password = ?2", email,password).firstResult();
   }
 
   @Transactional

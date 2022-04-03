@@ -12,5 +12,6 @@ public class Startup extends PanacheEntity {
   public String name;
   public int quantidadeDeFuncionarios;
   public String local;
+  public String descricao;
 
 }

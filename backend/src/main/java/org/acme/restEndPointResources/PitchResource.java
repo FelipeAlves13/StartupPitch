@@ -11,10 +11,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.acme.entidades.Pitch;
 import org.acme.entidades.Startup;
+
+import io.quarkus.panache.common.Parameters;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -36,14 +39,13 @@ public class PitchResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.APPLICATION_JSON)
-  public ArrayList<Pitch> pitchsByLocalNumeroDeFuncionariosAndInvestimento(Pitch pitch) {
+  @Path("/pitchsByLocalSerieFuncionarios")
+  public ArrayList<Pitch> pitchsByLocalNumeroDeFuncionariosAndInvestimento(@QueryParam("serieInvestimento") String inv, @QueryParam("local") String local,@QueryParam("qtdFuncionarios") int  quantidadeDeFuncionarios) {
     // return em.createQuery("select * from pitch").getResultList();
     ArrayList<Pitch> pitchs = new ArrayList<Pitch>();
-
-    List<Pitch> pitchsSerieInvestimentos = Pitch.find("seriedeinvetimento like ?1", pitch.serieDeInvetimento).list();
-    
-    List<Startup> startups=Startup.find("local like ?1 and quantidadedefuncionarios <= ?2 ", pitch.startup.local,pitch.startup.quantidadeDeFuncionarios).list();
+    List<Pitch> pitchsSerieInvestimentos=Pitch.find("seriedeinvetimento like ?1 ",inv).list();
+   // return Startup.find("quantidadedefuncionarios <= ?1 ",inv).list();
+    List<Startup> startups=Startup.find("local like ?1 and quantidadedefuncionarios <= ?2 ", local,quantidadeDeFuncionarios).list();
     
     for (Startup startup : startups) {
       for(Pitch p:pitchsSerieInvestimentos){

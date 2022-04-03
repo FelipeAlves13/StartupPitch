@@ -43,7 +43,7 @@ public class StartupResource {
     entity.name = startup.name;
     entity.quantidadeDeFuncionarios=startup.quantidadeDeFuncionarios;
     entity.local = startup.local;
-   
+    entity.descricao=startup.descricao;
 
     return entity;
   }
