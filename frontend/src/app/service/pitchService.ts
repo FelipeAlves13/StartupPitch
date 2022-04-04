@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Pitch } from '../model/pitch';
+import { PitchCadastro } from '../model/pitchCadastro';
 
 const PITCH_API: string = 'http://localhost:8080/pitchs';
 const PITCHS_BY_LOCAL_SERIE_INVESTIMENTO_QTD_FUNCIONARIOS = "/search";
@@ -21,7 +22,7 @@ export class PitchService {
     let parametros = new HttpParams();
     let headersReq = new HttpHeaders();
     headersReq.append('Content-Type', 'application/json');
-   
+
     parametros=parametros.append("serieInvestimento", ("%"+serieInvestimentos +"%"));
     parametros=parametros.append("local", ("%"+local+"%"));
     parametros=parametros.append("qtdFuncionarios", Number.parseInt(""+qtdFuncionarios));
@@ -34,7 +35,12 @@ export class PitchService {
   }
 
 
-  createPerson(pitch: Pitch): Observable<Pitch> {
+  createPitch(pitch: PitchCadastro): Observable<Pitch> {
     return this.http.post<Pitch>(PITCH_API, pitch);
   }
+
+  updatePitch(id:number,pitch:Pitch):Observable<Pitch> {
+    return this.http.put<Pitch>(PITCH_API+"/"+id,pitch);
+  }
+
 }

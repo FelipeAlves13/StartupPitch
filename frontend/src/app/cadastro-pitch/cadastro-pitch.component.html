@@ -22,21 +22,21 @@
     <div class="cadastro card">
       <div class="row">
         <div class="col-4">
-          <form action="" method="get">
+          <form action="" method="get" (ngSubmit)="cadastrarPitch()">
             <h5 class="text-align-center">CADASTRO DE PITCHS</h5>
 
             <div class="form-group">
               <label class="local" for="exampleInputPassword1">Pitch</label>
-              <input type="file" class="form-control-file" id="arquivo"  name="arquivo"
-                >
+              <input type="file" class="form-control-file" id="arquivo" name="arquivo" [(ngModel)]="pitchCadastro.diretorioDoArquivo">
             </div>
 
             <div class="form-group">
               <label for="customRange2">Série de Investimentos</label>
               <div class="input-group mb-3">
                 <select class="custom-select" id="serieDeInvestimento" aria-label="Example select with button addon"
-                  name="serieDeInvestimento" [(ngModel)]="pitchBusca.serieDeInvetimento">
-                  <option *ngFor="let serie of series; let i = index" [value]="serie" [selected]="i==0">{{serie}}</option>
+                  name="serieDeInvestimento" [(ngModel)]="pitchCadastro.serieDeInvetimento">
+                  <option *ngFor="let serie of series; let i = index" [value]="serie" [selected]="i==0">{{serie}}
+                  </option>
                 </select>
               </div>
             </div>
@@ -52,7 +52,7 @@
                 <th scope="col justify-content-center">#</th>
                 <th scope="col justify-content-center">Arquivo</th>
                 <th scope="col justify-content-center">Série de Investimento</th>
-                <th scope="col justify-content-center">Visualizar</th>
+                <th scope="col justify-content-center">Atualizar</th>
                 <th scope="col justify-content-center">Apagar</th>
               </tr>
             </thead>
@@ -64,7 +64,7 @@
 
                 <td class="justify-content-center">
                   <button class="detalhe" (click)="exibirOuOcultar(i)">
-                    Detalhes
+                    Atualizar
                   </button>
                 </td>
                 <td>
@@ -77,6 +77,45 @@
           </table>
         </div>
       </div>
-
     </div>
+  </div>
+
+  <div class="toggle bg-light" [hidden]="hideElement">
+
+    <div class="startup-detalhes">
+      <h3>PERFIL</h3>
+      <form action="" method="get">
+        <div class="form-group">
+          <label class="local" for="exampleInputPassword1">Nome</label>
+          <input type="text" class="form-control" id="arquivo" name="arquivo">
+        </div>
+
+        <div class="form-group">
+          <label for="customRange2">Descrição</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="descricao" name="descricao">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customRange2">Cidade</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="cidade" name="cidade">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customRange2">Estado</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="estado" name="estado">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customRange2">Pais</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="pais" name="pais">
+          </div>
+        </div>
+        <button class="cadastrar-button" type="submit">Cadastrar</button>
+      </form>
+    </div>
+
   </div>

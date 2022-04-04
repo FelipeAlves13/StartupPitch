@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   max-width: 310px;
+
 }
 
 nav {
@@ -13,7 +14,7 @@ nav {
   border: 1px solid rgba(168, 168, 168, 0.486);
   border-radius: 30px;
   margin-bottom: 10px;
-
+  box-shadow: 0 0 3px black;
 }
 
 .btn_menu {
@@ -34,7 +35,7 @@ nav {
 span {
   width: 50%;
   height: 100%;
-  background: #F27121;
+  background: #3e99e7;
   position: absolute;
   right: 0;
   border-radius: 30px;
@@ -45,6 +46,7 @@ span {
   position: relative;
   height: 70vh;
   border-radius: 15px;
+  box-shadow: 0 0 3px black;
 }
 
 .card::after {
@@ -55,7 +57,7 @@ span {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(#8A2387, #E94057, #F27121);
+  background-image: linear-gradient(#3e99e7,#212529);
   clip-path: polygon(50% 0%, 100% 0, 100% 13%, 100% 30%, 71% 46%, 50% 47%, 28% 46%, 0 30%, 0 9%, 0 0);
 }
 
@@ -100,7 +102,7 @@ span {
   border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  background: #E94057;
+  background-image: linear-gradient(#3e99e7,#3e99e7);
   color: white;
   font-weight: 900;
   width: 80%;

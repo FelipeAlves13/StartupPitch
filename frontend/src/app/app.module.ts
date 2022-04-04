@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PitchService } from './service/pitchService';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroPitchComponent } from './cadastro-pitch/cadastro-pitch.component';
+import { UserService } from './service/userService';
 
 
 
@@ -27,12 +28,13 @@ import { CadastroPitchComponent } from './cadastro-pitch/cadastro-pitch.componen
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'cadastro', component: CadastroComponent },
+      { path: 'cadastro', component: CadastroComponent},
       { path: 'investidor', component: ConsultapitchComponent },
       { path: 'startup', component:CadastroPitchComponent}
     ]),
   ],
-  providers: [PitchService],
+  exports:[RouterModule],
+  providers: [PitchService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

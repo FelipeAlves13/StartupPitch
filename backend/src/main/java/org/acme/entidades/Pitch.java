@@ -7,11 +7,11 @@ import javax.persistence.ManyToOne;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 @Entity
-public class Pitch extends PanacheEntity{
-  
+public class Pitch extends PanacheEntity {
+
   public String diretorioDoArquivo;
   public String serieDeInvetimento;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   public Startup startup;
 }

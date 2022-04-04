@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pitch } from '../model/pitch';
+import { User } from '../model/user';
 import { PitchService } from '../service/pitchService';
 
 @Component({
@@ -36,8 +38,10 @@ export class ConsultapitchComponent implements OnInit {
       id: 0, name: "", quantidadeDeFuncionarios: 50, local: "", descricao: ""
     }
   };
-
-  constructor(private pitchService: PitchService) { }
+ 
+  constructor(private pitchService: PitchService) {
+    //this.user=route.queryParams.map(params=>params.get())
+   }
 
   ngOnInit(): void {
   }

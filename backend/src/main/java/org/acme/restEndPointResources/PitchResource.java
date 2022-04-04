@@ -63,12 +63,13 @@ public class PitchResource {
   // "%"+pitch.startup.endereco.estado+"%",
   // "%"+pitch.startup.endereco.pais+"%"
   @Transactional
+  @Produces(MediaType.APPLICATION_JSON)
   @POST
   public Pitch add(Pitch pitch) {
     pitch.persist();
     return pitch;
   }
-
+  @Produces(MediaType.APPLICATION_JSON)
   @PUT
   @Path("/{id}")
   @Transactional
@@ -81,7 +82,7 @@ public class PitchResource {
     // map all fields from the person parameter to the existing entity
     entity.diretorioDoArquivo = pitch.diretorioDoArquivo;
     entity.serieDeInvetimento = pitch.serieDeInvetimento;
-
+    entity.startup=pitch.startup;
     return entity;
   }
 

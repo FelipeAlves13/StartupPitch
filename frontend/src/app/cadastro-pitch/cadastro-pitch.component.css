@@ -3,6 +3,7 @@
   margin:0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
 }
 .container {
   min-height: 100vh;
@@ -145,4 +146,75 @@ tbody{
   width: 100%;
   color: white;
   font-weight: 600;
+}
+.toggle{
+  position:absolute;
+  z-index: 1000;
+  height: 80vh;
+  width: 90vw;
+  top:10vh;
+  left:5vw;
+  display: grid;
+  background-color: #3e99e7 !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "acima acima"
+  "esquerda direita";
+  grid-template-rows: 15%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+}
+.toggle .top{
+  grid-area: acima;
+  height: 10%;
+}
+
+.toggle .top{
+  grid-area: acima;
+  height: 10%;
+}
+.superior-direito{
+  position: absolute;
+  top: 0px;
+  right: 1%;
+}
+.fechar{
+  border: 0;
+  background: rgba(0, 0, 0,0);
+  font-size: 1.85rem;
+  font-weight: 900;
+}
+.startup-detalhes{
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 90%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.startup-detalhes form{
+  box-sizing: border-box;
+  padding: 0;
+  height: 60%;
+  margin: 20%;
+  margin-top: 5%;
+  background: #fff;
+  border-radius: 8px;
+}
+.startup-detalhes input,select{
+  height: 30px;
+}
+.startup-detalhes .form-group{
+  margin-bottom: 0px !important;
+  margin-top:2% !important ;
+}
+.startup-detalhes h3{
+  margin-top: 2%;
+  font-size: 1.45rem;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
 }
