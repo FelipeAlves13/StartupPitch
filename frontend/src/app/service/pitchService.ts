@@ -18,6 +18,10 @@ export class PitchService {
 
   constructor(private http: HttpClient) { }
 
+  getTodosOsPitchs():Observable<Pitch[]>{
+    return this.http.get<Pitch[]>(PITCH_API);
+  }
+
   getPitchs(local: string, serieInvestimentos: string, qtdFuncionarios: number): Observable<Pitch[]> {
     let parametros = new HttpParams();
     let headersReq = new HttpHeaders();

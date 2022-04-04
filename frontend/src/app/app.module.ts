@@ -28,13 +28,14 @@ import { UserService } from './service/userService';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'cadastro', component: CadastroComponent},
+      { path: 'cadastro', component: CadastroComponent },
       { path: 'investidor', component: ConsultapitchComponent },
-      { path: 'startup', component:CadastroPitchComponent}
+      { path: 'startup', component: CadastroPitchComponent },
+      { path: '', redirectTo: '/investidor', pathMatch: 'full' }
     ]),
   ],
-  exports:[RouterModule],
-  providers: [PitchService,UserService],
+  exports: [RouterModule],
+  providers: [PitchService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

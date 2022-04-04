@@ -29,13 +29,11 @@ import javax.transaction.Transactional;
 @Path("/pitchs")
 public class PitchResource {
 
-  // @GET
-  // @Produces(MediaType.APPLICATION_JSON)
-  // public List<Pitch> list() {
-  // return Pitch.listAll();
-  // }
-  @Inject
-  EntityManager em;
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Pitch> list() {
+    return Pitch.listAll();
+  }
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)

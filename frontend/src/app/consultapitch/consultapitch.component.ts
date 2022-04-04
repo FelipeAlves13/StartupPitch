@@ -35,15 +35,16 @@ export class ConsultapitchComponent implements OnInit {
   };
   public pitchBusca: Pitch = {
     id: 0, diretorioDoArquivo: "", serieDeInvetimento: "", startup: {
-      id: 0, name: "", quantidadeDeFuncionarios: 50, local: "", descricao: ""
+      id: 0, name: "", quantidadeDeFuncionarios: 1, local: "", descricao: ""
     }
   };
- 
+
   constructor(private pitchService: PitchService) {
     //this.user=route.queryParams.map(params=>params.get())
-   }
+  }
 
   ngOnInit(): void {
+    this.buscarPitchs();
   }
 
   exibirOuOcultar(indice: number): void {
@@ -56,6 +57,10 @@ export class ConsultapitchComponent implements OnInit {
       this.hideElement = true;
     }
 
+  }
+
+  buscarPitchs() {
+    this.pitchService.getTodosOsPitchs().subscribe((data: Pitch[]) => this.pitchs = data, error => console.log("error en get pitchs", error))
   }
 
   buscarPitchsPorLocalNumeroDeFuncionariosSerieDeInvestimentos() {

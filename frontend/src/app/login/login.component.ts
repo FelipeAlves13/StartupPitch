@@ -23,12 +23,19 @@ export class LoginComponent implements OnInit {
 
   loginInSystem(): void {
     console.log(this.email+this.password);
-    this.userService.getLogin(this.email, this.password).subscribe((data: User) => this.user=data, error => console.log("error en get login", error));
+    this.userService.getLogin(this.email, this.password).subscribe((data: User) =>{
+      this.user.id=data.id;
+      this.user.email=data.email;
+      this.user.password=data.password;
+      this.user.startup=data.startup;
+      this.user.investidor=data.investidor;
+      return this.user;
+    } , error => console.log("error en get login", error));
     console.log(this.user);
     if(this.user.id>0){
       this.route.navigate(['/startup',{user:JSON.stringify(this.user.id)}]);
     }
-    
+
   }
 
 
