@@ -17,16 +17,16 @@ export class ConsultapitchComponent implements OnInit {
     "", "Série A", "Série B", "Série C", "Série D", "Série E"
   ]
   public pitchs: Pitch[] = [
-    {
-      id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie A", startup: {
-        id: 1, name: "Felipe", quantidadeDeFuncionarios: 20, local: "opaa", descricao: ""
-      }
-    },
-    {
-      id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie B", startup: {
-        id: 1, name: "Felipe Antonio", quantidadeDeFuncionarios: 50, local: "opaa", descricao: ""
-      }
-    }
+    // {
+    //   id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie A", startup: {
+    //     id: 1, name: "Felipe", quantidadeDeFuncionarios: 20, local: "opaa", descricao: ""
+    //   }
+    // },
+    // {
+    //   id: 1, diretorioDoArquivo: "opaaaa", serieDeInvetimento: "Serie B", startup: {
+    //     id: 1, name: "Felipe Antonio", quantidadeDeFuncionarios: 50, local: "opaa", descricao: ""
+    //   }
+    // }
   ];
   public pitchAtivo: Pitch = {
     id: 0, diretorioDoArquivo: "", serieDeInvetimento: "", startup: {
